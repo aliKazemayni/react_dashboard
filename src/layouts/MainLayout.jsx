@@ -1,18 +1,14 @@
-import {ThemeProvider} from "@mui/material";
-import {cacheRtl, mainTheme} from "../themes/mainTheme";
-import {CacheProvider} from "@emotion/react";
-import CssBaseline from '@mui/material/CssBaseline';
-import {HelmetProvider} from "react-helmet-async";
+import {Sidebar} from "../components/Sidebar/Sidebar";
+import Grid2 from "@mui/material/Unstable_Grid2";
+import {Outlet} from "react-router-dom";
 
 export  let MainLayout = ({children}) => {
     return (
-        <CacheProvider value={cacheRtl}>
-            <ThemeProvider theme={mainTheme}>
-                <CssBaseline />
-                <HelmetProvider>
-                    {children}
-                </HelmetProvider>
-            </ThemeProvider>
-        </CacheProvider>
+        <Grid2 container>
+            <Sidebar/>
+            <Grid2 sx={{ backgroundColor : "primary." , height : "100vh" }} xs={12} sm={12} md={12-3} lg={12-2} xl={12-2}>
+                <Outlet />
+            </Grid2>
+        </Grid2>
     );
 }
