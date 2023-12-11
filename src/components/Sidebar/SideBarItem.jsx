@@ -17,6 +17,8 @@ export let SideBarItem = ({url , title , icon}) => {
                 marginTop : "5px",
                 '&.active': {
                     backgroundColor: blueGrey[700],
+                    borderLeft : "5px solid",
+                    borderColor : blueGrey[100] ,
                 },
             }
         )

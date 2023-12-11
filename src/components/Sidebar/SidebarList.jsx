@@ -8,8 +8,8 @@ const SidebarList = () => {
     return (
         <List sx={{px:"10px"}}>
             {
-                sidebar_list.map((item) => {
-                    return (<SideBarItem title={item.title} url={item.url} icon={item.icon}/>)
+                sidebar_list.map(({ title , icon , url }) => {
+                    return (<SideBarItem title={title} url={url} icon={icon} />)
                 })
             }
         </List>
