@@ -1,5 +1,5 @@
 
-export let MobileContainer = (display) => {
+export let mobileDisplay = (display) => {
         return  {
             sm: display,
             xs: display,

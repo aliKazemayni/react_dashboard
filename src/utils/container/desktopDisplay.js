@@ -1,6 +1,4 @@
-import Grid2 from "@mui/material/Unstable_Grid2";
-
-export let DesktopContainer = (display) => {
+export let desktopDisplay = (display) => {
     return  {
         sm: 'none',
         xs: 'none',
