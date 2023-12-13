@@ -10,15 +10,13 @@ export let SideBarItem = ({url , title , icon}) => {
     (
         ({ theme }) => (
             {
-                '&:hover': {
-                    backgroundColor: theme.palette.mode === 'dark' ? '#333' : '#f0f0f0',
-                },
                 borderRadius: '10px',
                 marginTop : "5px",
                 '&.active': {
                     backgroundColor: blueGrey[700],
-                    borderLeft : "5px solid",
-                    borderColor : blueGrey[100] ,
+                },
+                '&:hover': {
+                    backgroundColor: blueGrey[900],
                 },
             }
         )
