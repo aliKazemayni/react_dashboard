@@ -1,41 +1,22 @@
 import LogoBox from "../Sidebar/SidebarLogo";
 import SidebarList from "../Sidebar/SidebarList";
-import {Button, SwipeableDrawer} from "@mui/material";
-import {useState} from "react";
+import { SwipeableDrawer} from "@mui/material";
 import Grid2 from "@mui/material/Unstable_Grid2";
-import {MenuRounded} from "@mui/icons-material";
 import {grey} from "@mui/material/colors";
-import {MobileContainer} from "../Container/MobileContainer";
+import {MainContext} from "../../context/MainContext";
+import {useContext} from "react";
 
 export let Drawer = () => {
 
-    const [drawer, setDrawer] = useState(false)
-
-    const toggleDrawer = (open) => () => {
-        setDrawer(open)
-    };
+    let context = useContext(MainContext)
 
     return <>
-        <Grid2
-            sx={{
-                display: MobileContainer("block"),
-            }}
-        >
-            <Button onClick={toggleDrawer(true)}>
-                <MenuRounded
-                    color="action"
-                    sx={{
-                        fontSize : 30
-                    }}
-                />
-            </Button>
-        </Grid2>
         <SwipeableDrawer
             anchor={"left"}
-            open={drawer}
+            open={context.drawer}
             variant={"temporary"}
-            onClose={toggleDrawer(false)}
-            onOpen={toggleDrawer(true)}
+            onClose={context.handleDrawer(false)}
+            onOpen={context.handleDrawer(true)}
         >
             <Grid2 sx={{
                 backgroundColor:grey[900],
