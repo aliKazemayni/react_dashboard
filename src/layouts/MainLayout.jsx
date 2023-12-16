@@ -3,23 +3,14 @@ import Grid2 from "@mui/material/Unstable_Grid2";
 import {Outlet} from "react-router-dom";
 import {Drawer} from "../components/Drawer/Drawer";
 import PrimarySearchAppBar from "../components/AppBar/AppBar";
-import {MainContext} from "../context/MainContext";
-import {useState} from "react";
 import Box from "@mui/material/Box";
+import {ThemeComponent} from "../themes/mainTheme";
 
-export  let MainLayout = ({children}) => {
-
-    const [drawer, setDrawer] = useState(false);
-    const handleDrawer = (open) => () => {
-        setDrawer(open)
-    };
+export  let MainLayout = () => {
 
     return (
         <Grid2 container>
-            <MainContext.Provider value={{
-                drawer: drawer,
-                handleDrawer : handleDrawer
-            }} >
+            <ThemeComponent>
                 <Sidebar/>
                 <Drawer />
                 <Grid2
@@ -33,7 +24,7 @@ export  let MainLayout = ({children}) => {
                         <Outlet />
                     </Box>
                 </Grid2>
-            </MainContext.Provider>
+            </ThemeComponent>
         </Grid2>
     );
 }
