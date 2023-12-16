@@ -1,4 +1,3 @@
-import {blueGrey} from "@mui/material/colors";
 import MenuItem from "@mui/material/MenuItem";
 import Menu from "@mui/material/Menu";
 import * as React from "react";
@@ -15,7 +14,6 @@ export let ProfileMenu = ({isMenuOpen , handleMenuClose , anchorEl , menuId}) =>
                 mt: "1px",
                 "& .MuiMenu-paper":
                     {
-                        backgroundColor: blueGrey[800],
                         borderRadius : 2
                     },
             }

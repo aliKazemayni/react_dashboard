@@ -1,7 +1,6 @@
 import SearchIcon from "@mui/icons-material/Search";
 import * as React from "react";
 import {styled} from "@mui/material/styles";
-import {blueGrey} from "@mui/material/colors";
 import InputBase from "@mui/material/InputBase";
 
 export  let Search = () => {
@@ -9,9 +8,9 @@ export  let Search = () => {
     const Search = styled('div')(({ theme }) => ({
         position: 'relative',
         borderRadius: theme.shape.borderRadius,
-        backgroundColor: blueGrey[900],
+        backgroundColor: theme.palette.primary.dark,
         '&:hover': {
-            backgroundColor: blueGrey[800],
+            backgroundColor: theme.palette.primary.main,
         },
         marginRight: theme.spacing(2),
         marginLeft: 0,

@@ -2,7 +2,6 @@ import LogoBox from "../Sidebar/SidebarLogo";
 import SidebarList from "../Sidebar/SidebarList";
 import { SwipeableDrawer} from "@mui/material";
 import Grid2 from "@mui/material/Unstable_Grid2";
-import {grey} from "@mui/material/colors";
 import {MainContext} from "../../context/MainContext";
 import {useContext} from "react";
 
@@ -19,7 +18,6 @@ export let Drawer = () => {
             onOpen={context.handleDrawer(true)}
         >
             <Grid2 sx={{
-                backgroundColor:grey[900],
                 boxShadow : " 20px 20px 60px #202020, -20px -20px 60px #2c2c2c",
                 width:250 , height:1 , textAlign : "center"
             }}>

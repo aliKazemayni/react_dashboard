@@ -1,39 +1,44 @@
-import IconButton from "@mui/material/IconButton";
+
 import Badge from "@mui/material/Badge";
 import MailIcon from "@mui/icons-material/Mail";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import AccountCircle from "@mui/icons-material/AccountCircle";
 import * as React from "react";
-import {blueGrey} from "@mui/material/colors";
 import {styled} from "@mui/material/styles";
 import Box from "@mui/material/Box";
+import {Button, ButtonGroup} from "@mui/material";
+import {DarkMode, LightMode} from "@mui/icons-material";
+import {useContext} from "react";
+import {MainContext} from "../../context/MainContext";
 
 export let Icons = ({menuId, handleProfileMenuOpen}) => {
 
-    const IconBox = styled('div')(({ theme }) => ({
+
+    /*const IconBox = styled('div')(({ theme }) => ({
         display: { xs: 'none', md: 'flex' } ,
         width : 200,
         p : 3,
         justifyContent:"center",
         borderRadius : theme.shape.borderRadius
+    }));*/
+
+    const IconItem = styled(Button)(({ theme }) => ({
+        backgroundColor : theme.palette.primary.main,
+        '&:hover': {
+            backgroundColor: theme.palette.primary.light,
+        },
     }));
 
-    const IconItem = styled(IconButton)(({ theme }) => ({
-        display: { xs: 'none', md: 'flex' } ,
-        backgroundColor : blueGrey[900] ,
-        justifyContent:"center",
-        margin : 3,
-        '&:hover': {
-            backgroundColor: blueGrey[500],
-        },
-        borderRadius : theme.shape.borderRadius
-    }));
+    const context = useContext(MainContext);
 
     return <>
         <Box sx={{
             display: { xs: 'none', md: 'flex' } ,
         }}>
-            <IconBox>
+            <ButtonGroup variant="contained" aria-label="icons" color="inherit">
+                <IconItem size="large" aria-label="show 4 new mails" color="inherit" onClick={context.handleTheme(!context.theme)}>
+                    {context.theme ? <LightMode/> : <DarkMode/>}
+                </IconItem>
                 <IconItem size="large" aria-label="show 4 new mails" color="inherit">
                     <Badge badgeContent={4} color="error">
                         <MailIcon />
@@ -59,7 +64,7 @@ export let Icons = ({menuId, handleProfileMenuOpen}) => {
                 >
                     <AccountCircle />
                 </IconItem>
-            </IconBox>
+            </ButtonGroup>
         </Box>
     </>
 }

@@ -1,6 +1,5 @@
 import {styled} from "@mui/system";
 import {ListItem, ListItemIcon, ListItemText} from "@mui/material";
-import {blueGrey} from "@mui/material/colors";
 import {NavLink} from "react-router-dom";
 import React from "react";
 
@@ -13,10 +12,10 @@ export let SideBarItem = ({url , title , icon}) => {
                 borderRadius: '10px',
                 marginTop : "5px",
                 '&.active': {
-                    backgroundColor: blueGrey[700],
+                    backgroundColor: theme.palette.primary.main,
                 },
                 '&:hover': {
-                    backgroundColor: blueGrey[900],
+                    backgroundColor: theme.palette.primary.light,
                 },
             }
         )

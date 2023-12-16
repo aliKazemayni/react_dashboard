@@ -11,7 +11,6 @@ export let MenuButton = ({handleMobileMenuOpen , mobileMenuId}) => {
             aria-controls={mobileMenuId}
             aria-haspopup="true"
             onClick={handleMobileMenuOpen}
-            color="inherit"
         >
             <MoreIcon />
         </IconButton>
