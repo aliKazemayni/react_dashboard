@@ -8,12 +8,18 @@ import {prefixer} from "stylis";
 import {blueGrey} from "@mui/material/colors";
 import {useState} from "react";
 import {MainContext} from "../context/MainContext";
+import {Helmet} from "react-helmet-async";
 
 export const ThemeComponent = ({children}) => {
 
     const [drawer, setDrawer] = useState(false);
     const handleDrawer = (open) => () => {
         setDrawer(open)
+    };
+
+    const [direction, setDirection] = useState(false);
+    const handleDirection = (dir) => () => {
+        setDirection(dir)
     };
 
     const [theme, setTheme] = useState(false);
@@ -24,6 +30,10 @@ export const ThemeComponent = ({children}) => {
     const cacheRtl = createCache({
         key: 'muirtl',
         stylisPlugins: [prefixer, rtlPlugin],
+    });
+
+    const emptyCash = createCache({
+        key : "meaningless-key"
     });
 
     const darkPalette = {
@@ -46,7 +56,7 @@ export const ThemeComponent = ({children}) => {
     };
 
     let mainTheme = createTheme({
-        direction: 'rtl',
+        direction: 'ltr',
         palette : theme ? lightPalette : darkPalette ,
         typography : {
             fontFamily : "B Yekan"
@@ -54,13 +64,16 @@ export const ThemeComponent = ({children}) => {
     });
 
     return <>
+        <Helmet> { direction ? <html lang="fa" dir="rtl" /> : <html lang="en" dir="ltr" />} </Helmet>
         <MainContext.Provider value={{
             theme : theme,
             handleTheme : handleTheme,
             drawer : drawer,
-            handleDrawer : handleDrawer
+            handleDrawer : handleDrawer,
+            direction : direction,
+            handleDirection : handleDirection
         }} >
-            <CacheProvider value={cacheRtl}>
+            <CacheProvider value={direction ? cacheRtl : emptyCash}>
                 <ThemeProvider theme={mainTheme}>
                     <CssBaseline />
                     {children}

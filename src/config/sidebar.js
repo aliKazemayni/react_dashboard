@@ -2,12 +2,12 @@ import {HomeRounded, SettingsRounded} from "@mui/icons-material";
 
 export let sidebar_list = [
     {
-        title : "صفحه اصلی",
+        title : "Home",
         icon : <HomeRounded/> ,
         url : "/home"
     },
     {
-        title : "تنظیمات",
+        title : "Setting",
         icon : <SettingsRounded/> ,
         url : "/setting"
     },

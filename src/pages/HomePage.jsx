@@ -6,6 +6,6 @@ export let HomePage = () => {
         <Helmet>
             <title>رزومه من | صفحه اصلی</title>
         </Helmet>
-        <Typography variant="h3">صفحه اصلی</Typography>
+        <Typography variant="h3">home</Typography>
     </>
 }

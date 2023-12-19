@@ -29,12 +29,13 @@ export let SideBarItem = ({url , title , icon}) => {
         )
     );
 
+
     return <>
         <ListItemWrapper button component={NavLink} to={url}>
             <ListItemIcon>
                 {icon}
             </ListItemIcon>
-            <ListItemText primary={title} />
+            <ListItemText primary={title}/>
         </ListItemWrapper>
     </>
 }

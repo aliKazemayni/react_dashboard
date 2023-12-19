@@ -4,7 +4,7 @@ import {Outlet} from "react-router-dom";
 import {Drawer} from "../components/Drawer/Drawer";
 import PrimarySearchAppBar from "../components/AppBar/AppBar";
 import Box from "@mui/material/Box";
-import {ThemeComponent} from "../themes/mainTheme";
+import {ThemeComponent} from "../themes/ThemeComponent";
 
 export  let MainLayout = () => {
 

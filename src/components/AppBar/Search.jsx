@@ -50,7 +50,7 @@ export  let Search = () => {
                 <SearchIcon />
             </SearchIconWrapper>
             <StyledInputBase
-                placeholder="جستجو …"
+                placeholder="search…"
                 inputProps={{ 'aria-label': 'search' }}
             />
         </Search>

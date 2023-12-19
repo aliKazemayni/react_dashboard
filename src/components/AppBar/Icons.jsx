@@ -7,7 +7,7 @@ import * as React from "react";
 import {styled} from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import {Button, ButtonGroup} from "@mui/material";
-import {DarkMode, LightMode} from "@mui/icons-material";
+import {DarkMode, Language, LightMode} from "@mui/icons-material";
 import {useContext} from "react";
 import {MainContext} from "../../context/MainContext";
 
@@ -35,9 +35,12 @@ export let Icons = ({menuId, handleProfileMenuOpen}) => {
         <Box sx={{
             display: { xs: 'none', md: 'flex' } ,
         }}>
-            <ButtonGroup variant="contained" aria-label="icons" color="inherit">
+            <ButtonGroup variant="contained" aria-label="icons">
                 <IconItem size="large" aria-label="show 4 new mails" color="inherit" onClick={context.handleTheme(!context.theme)}>
                     {context.theme ? <LightMode/> : <DarkMode/>}
+                </IconItem>
+                <IconItem size="large" aria-label="show 4 new mails" color="inherit" onClick={context.handleDirection(!context.direction)}>
+                    <Language/>
                 </IconItem>
                 <IconItem size="large" aria-label="show 4 new mails" color="inherit">
                     <Badge badgeContent={4} color="error">
