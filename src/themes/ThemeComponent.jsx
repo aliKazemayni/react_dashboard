@@ -66,7 +66,7 @@ export const ThemeComponent = ({children}) => {
         direction: 'ltr',
         palette : theme ? lightPalette : darkPalette ,
         typography : {
-            fontFamily : "B Yekan"
+            fontFamily : i18n.language === "en" ? "arial" : "B Yekan"
         }
     });
 
