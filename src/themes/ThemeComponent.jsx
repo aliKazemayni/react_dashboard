@@ -9,6 +9,7 @@ import {blueGrey} from "@mui/material/colors";
 import {useState} from "react";
 import {MainContext} from "../context/MainContext";
 import {Helmet} from "react-helmet-async";
+import {useTranslation} from "react-i18next";
 
 export const ThemeComponent = ({children}) => {
 
@@ -16,9 +17,15 @@ export const ThemeComponent = ({children}) => {
     const handleDrawer = (open) => () => {
         setDrawer(open)
     };
-
+    const { i18n} = useTranslation();
     const [direction, setDirection] = useState(false);
     const handleDirection = (dir) => () => {
+        if (dir)
+        {
+            i18n.changeLanguage("fa");
+        }else{
+            i18n.changeLanguage("en");
+        }
         setDirection(dir)
     };
 

@@ -2,6 +2,7 @@ import SearchIcon from "@mui/icons-material/Search";
 import * as React from "react";
 import {styled} from "@mui/material/styles";
 import InputBase from "@mui/material/InputBase";
+import {useTranslation} from "react-i18next";
 
 export  let Search = () => {
 
@@ -43,14 +44,14 @@ export  let Search = () => {
             },
         },
     }));
-
+    const {t} = useTranslation();
     return <>
         <Search>
             <SearchIconWrapper>
                 <SearchIcon />
             </SearchIconWrapper>
             <StyledInputBase
-                placeholder="search…"
+                placeholder={t("search")+"..."}
                 inputProps={{ 'aria-label': 'search' }}
             />
         </Search>
