@@ -13,6 +13,9 @@ i18n.use(initReactI18next).init({
                 home: 'home',
                 search: 'search',
                 setting: 'setting',
+                table: 'table',
+                account: 'account',
+                more: 'more',
                 myResume : "My Resume"
             }
         },
@@ -21,6 +24,9 @@ i18n.use(initReactI18next).init({
                 home: 'صفحه اصلی',
                 search : "جستجو",
                 setting : "تنظیمات",
+                table : "جدول",
+                more : "بیشتر",
+                account : "حساب کاربری",
                 myResume: "رزومه من"
             }
         },
