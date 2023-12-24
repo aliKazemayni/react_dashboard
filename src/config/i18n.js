@@ -16,6 +16,8 @@ i18n.use(initReactI18next).init({
                 table: 'table',
                 account: 'account',
                 more: 'more',
+                en: 'en',
+                fa: 'fa',
                 myResume : "My Resume"
             }
         },
@@ -27,6 +29,8 @@ i18n.use(initReactI18next).init({
                 table : "جدول",
                 more : "بیشتر",
                 account : "حساب کاربری",
+                en : "انگلیسی",
+                fa : "فارسی",
                 myResume: "رزومه من"
             }
         },

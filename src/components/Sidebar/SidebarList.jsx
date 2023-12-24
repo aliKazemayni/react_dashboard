@@ -10,10 +10,10 @@ const SidebarList = () => {
             {
                 sidebar_list.map(({ type , title , icon , url, children } , index) => {
                     if (type === "item")
-                        return (<SideBarItem title={title} url={url} icon={icon} />)
+                        return (<SideBarItem title={title} url={url} icon={icon}  key={index} />)
                     else
                     {
-                        return (<SidebarCollapse icon={icon} children={children} title={title}/>)
+                        return (<SidebarCollapse icon={icon} children={children} title={title} key={index} />)
                     }
                 })
             }

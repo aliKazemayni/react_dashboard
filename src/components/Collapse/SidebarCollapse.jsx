@@ -1,9 +1,8 @@
-import { List, ListItemIcon, ListItemText} from "@mui/material";
+import {List, ListItemIcon, ListItemText, useTheme} from "@mui/material";
 import {SideBarItem} from "../Sidebar/SideBarItem";
-import React, {useState} from "react";
+import {useState} from "react";
 import {ListItemWrapper} from "../List/ListItemWrapper";
-import {ExpandLess, ExpandMore} from "@mui/icons-material";
-import {blueGrey} from "@mui/material/colors";
+import {ExpandLess, ExpandMore} from "@mui/icons-material"; 
 import {useTranslation} from "react-i18next";
 import {CollapseWrapper} from "./CollapseWrapper";
 
@@ -15,9 +14,10 @@ export  const SidebarCollapse = ({icon , children , title}) => {
         setOpen(!open);
     };
     const { t } = useTranslation();
+    const theme = useTheme()
     return <>
         <ListItemWrapper sx={open ? {
-            backgroundColor : blueGrey[900],
+            backgroundColor : theme.palette.primary.dark,
             borderBottomLeftRadius : 0,
             borderBottomRightRadius : 0,
         } : {}}
@@ -29,8 +29,8 @@ export  const SidebarCollapse = ({icon , children , title}) => {
             <List component="div" disablePadding>
                 {
                     children.map(
-                        (child) => {
-                            return <SideBarItem title={child.title} url={child.url} icon={child.icon}/>
+                        (child , key) => {
+                            return <SideBarItem title={child.title} url={child.url} icon={child.icon} key={key}/>
                         }
                     )
                 }

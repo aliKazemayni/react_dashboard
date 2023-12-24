@@ -1,10 +1,10 @@
-import MenuItem from "@mui/material/MenuItem";
+
 import Menu from "@mui/material/Menu";
 import * as React from "react";
 
-export let ProfileMenu = ({isMenuOpen , handleMenuClose , anchorEl , menuId}) => {
+export let ProfileMenu = ({isMenuOpen , handleMenuClose  , menuId , children}) => {
     return <Menu
-        anchorEl={anchorEl}
+        anchorEl={null}
         anchorOrigin={{
             vertical: 'top',
             horizontal: 'right',
@@ -27,7 +27,6 @@ export let ProfileMenu = ({isMenuOpen , handleMenuClose , anchorEl , menuId}) =>
         open={isMenuOpen}
         onClose={handleMenuClose}
     >
-        <MenuItem onClick={handleMenuClose}>حساب کاربری</MenuItem>
-        <MenuItem onClick={handleMenuClose}>خروج</MenuItem>
+        {children}
     </Menu>
 }

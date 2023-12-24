@@ -10,6 +10,7 @@ import {ProfileMenu} from "./ProfileMenu";
 import {MobileMenu} from "./MobileMenu";
 import {MenuButton} from "./MenuButton";
 import {DrawerButton} from "./DrawerButton";
+import MenuItem from "@mui/material/MenuItem";
 
 
 export default function PrimarySearchAppBar() {
@@ -54,7 +55,10 @@ export default function PrimarySearchAppBar() {
                 </Toolbar>
             </AppBar>
             <MobileMenu isMobileMenuOpen={isMobileMenuOpen} mobileMoreAnchorEl={mobileMoreAnchorEl} mobileMenuId={mobileMenuId} handleMobileMenuClose={handleMobileMenuClose} handleProfileMenuOpen={handleProfileMenuOpen}/>
-            <ProfileMenu handleMenuClose={handleMenuClose} isMenuOpen={isMenuOpen} anchorEl={anchorEl} menuId={menuId}/>
+            <ProfileMenu handleMenuClose={handleMenuClose} isMenuOpen={isMenuOpen} anchorEl={anchorEl} menuId={menuId}>
+                <MenuItem onClick={handleMenuClose}>حساب کاربری</MenuItem>
+                <MenuItem onClick={handleMenuClose}>خروج</MenuItem>
+            </ProfileMenu>
 
         </Box>
     );

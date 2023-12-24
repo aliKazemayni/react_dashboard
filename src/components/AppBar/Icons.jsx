@@ -7,27 +7,20 @@ import * as React from "react";
 import {styled} from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import {Button, ButtonGroup} from "@mui/material";
-import {DarkMode, Language, LightMode} from "@mui/icons-material";
+import {DarkMode, LightMode} from "@mui/icons-material";
 import {useContext} from "react";
 import {MainContext} from "../../context/MainContext";
+import {LanguageChange} from "./LanguageChange";
 
+export const IconItem = styled(Button)(({ theme }) => ({
+    backgroundColor : theme.palette.primary.main,
+    '&:hover': {
+        backgroundColor: theme.palette.primary.light,
+    },
+}));
 export let Icons = ({menuId, handleProfileMenuOpen}) => {
 
 
-    /*const IconBox = styled('div')(({ theme }) => ({
-        display: { xs: 'none', md: 'flex' } ,
-        width : 200,
-        p : 3,
-        justifyContent:"center",
-        borderRadius : theme.shape.borderRadius
-    }));*/
-
-    const IconItem = styled(Button)(({ theme }) => ({
-        backgroundColor : theme.palette.primary.main,
-        '&:hover': {
-            backgroundColor: theme.palette.primary.light,
-        },
-    }));
 
     const context = useContext(MainContext);
 
@@ -39,9 +32,7 @@ export let Icons = ({menuId, handleProfileMenuOpen}) => {
                 <IconItem size="large" aria-label="show 4 new mails" color="inherit" onClick={context.handleTheme(!context.theme)}>
                     {context.theme ? <LightMode/> : <DarkMode/>}
                 </IconItem>
-                <IconItem size="large" aria-label="show 4 new mails" color="inherit" onClick={context.handleDirection(!context.direction)}>
-                    <Language/>
-                </IconItem>
+                <LanguageChange/>
                 <IconItem size="large" aria-label="show 4 new mails" color="inherit">
                     <Badge badgeContent={4} color="error">
                         <MailIcon />

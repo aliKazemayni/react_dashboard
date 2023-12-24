@@ -19,14 +19,11 @@ export const ThemeComponent = ({children}) => {
     };
     const { i18n} = useTranslation();
     const [direction, setDirection] = useState(false);
-    const handleDirection = (dir) => () => {
-        if (dir)
-        {
-            i18n.changeLanguage("fa");
-        }else{
-            i18n.changeLanguage("en");
-        }
-        setDirection(dir)
+    const handleDirection = (lang) => () => {
+        console.log(lang , direction)
+        i18n.changeLanguage(lang);
+        localStorage.setItem('language' , lang)
+        setDirection(lang === "fa")
     };
 
     const [theme, setTheme] = useState(false);
