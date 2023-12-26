@@ -6,28 +6,34 @@ import rtlPlugin from 'stylis-plugin-rtl';
 import createCache from '@emotion/cache';
 import {prefixer} from "stylis";
 import {blueGrey} from "@mui/material/colors";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import {MainContext} from "../context/MainContext";
 import {Helmet} from "react-helmet-async";
 import {useTranslation} from "react-i18next";
 
 export const ThemeComponent = ({children}) => {
 
+    const [direction, setDirection] = useState();
+    const [theme, setTheme] = useState();
     const [drawer, setDrawer] = useState(false);
+
+    useEffect(() => {
+        setTheme(JSON.parse(localStorage.getItem('theme')));
+        i18n.changeLanguage(localStorage.getItem('language'));
+        setDirection(localStorage.getItem('language') === "fa");
+    }, []);
     const handleDrawer = (open) => () => {
         setDrawer(open)
     };
     const { i18n} = useTranslation();
-    const [direction, setDirection] = useState(false);
     const handleDirection = (lang) => () => {
-        console.log(lang , direction)
         i18n.changeLanguage(lang);
         localStorage.setItem('language' , lang)
         setDirection(lang === "fa")
     };
 
-    const [theme, setTheme] = useState(false);
     const handleTheme = (theme) => () => {
+        localStorage.setItem('theme' , theme)
         setTheme(theme)
     };
 
@@ -49,6 +55,32 @@ export const ThemeComponent = ({children}) => {
         }
     };
 
+    const darkPalette2 = {
+        primary: {
+            main: '#FFD700', // Gold color
+        },
+        secondary: {
+            main: '#a98274', // Another complementary color
+        },
+        background: {
+            default: '#121212', // Dark background
+            paper: '#1e1e1e', // Darker background for paper-like elements
+        },
+    };
+
+    const darkPalette3 = {
+        primary: {
+            main: '#90caf9', // Light blue
+        },
+        secondary: {
+            main: '#ffcc80', // Orange
+        },
+        background: {
+            default: '#121212', // Dark grey
+            paper: '#1e1e1e', // Darker grey
+        },
+    };
+
     const lightPalette = {
         mode : "light",
         primary : {
@@ -59,6 +91,7 @@ export const ThemeComponent = ({children}) => {
         }
     };
 
+    console.log(theme , "theme")
     let mainTheme = createTheme({
         direction: 'ltr',
         palette : theme ? lightPalette : darkPalette ,

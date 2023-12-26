@@ -4,6 +4,7 @@ import {HomePage} from "../pages/HomePage";
 import {SettingPage} from "../pages/SettingPage";
 import {AccountPage} from "../pages/AccountPage";
 import {TablePage} from "../pages/TablePage";
+import NeumorphicLoginPage from "../components/Login";
 
 export let Routes = () => {
     return useRoutes(
@@ -29,6 +30,10 @@ export let Routes = () => {
                         element: <SettingPage/>
                     }
                 ]
+            },
+            {
+                path : '/login' ,
+                element : <NeumorphicLoginPage/>
             }
         ]
     );
