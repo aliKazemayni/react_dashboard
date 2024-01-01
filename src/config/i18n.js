@@ -1,5 +1,7 @@
 import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
+import {fa} from "./language/fa";
+import {en} from "./language/en";
 
 i18n.use(initReactI18next).init({
     lng: "en",
@@ -7,34 +9,7 @@ i18n.use(initReactI18next).init({
     interpolation: {
         escapeValue: false,
     },
-    resources: {
-        en: {
-            translation: {
-                home: 'home',
-                search: 'search',
-                setting: 'setting',
-                table: 'table',
-                account: 'account',
-                more: 'more',
-                en: 'en',
-                fa: 'fa',
-                myResume : "My Resume"
-            }
-        },
-        fa: {
-            translation: {
-                home: 'صفحه اصلی',
-                search : "جستجو",
-                setting : "تنظیمات",
-                table : "جدول",
-                more : "بیشتر",
-                account : "حساب کاربری",
-                en : "انگلیسی",
-                fa : "فارسی",
-                myResume: "رزومه من"
-            }
-        },
-    },
+    resources: {en, fa},
 });
 
 export default i18n;

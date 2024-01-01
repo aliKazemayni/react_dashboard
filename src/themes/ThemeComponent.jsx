@@ -19,7 +19,7 @@ export const ThemeComponent = ({children}) => {
 
     useEffect(() => {
         setTheme(JSON.parse(localStorage.getItem('theme')));
-        i18n.changeLanguage(localStorage.getItem('language'));
+        i18n.changeLanguage(localStorage.getItem('language')).then();
         setDirection(localStorage.getItem('language') === "fa");
     }, []);
     const handleDrawer = (open) => () => {
@@ -55,7 +55,7 @@ export const ThemeComponent = ({children}) => {
         }
     };
 
-    const darkPalette2 = {
+    /*const darkPalette2 = {
         primary: {
             main: '#FFD700', // Gold color
         },
@@ -79,7 +79,7 @@ export const ThemeComponent = ({children}) => {
             default: '#121212', // Dark grey
             paper: '#1e1e1e', // Darker grey
         },
-    };
+    };*/
 
     const lightPalette = {
         mode : "light",
